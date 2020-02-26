@@ -1,23 +1,5 @@
-<?php 
-session_start();
-include 'koneksi.php'; ?>
-<!DOCTYPE html>
-<html>
-<head>
-		<title>Nota Pembelian</title>
-		<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
-		<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-	</head>
-	<?php include'header.php'; ?>
-	<body>
-
-<?php include 'menu.php'; ?>
-
 <section class ="konten">
 	<div class="container">
-		
-
-
 	<!-- nota disini copas saja dari nota yang ada di admin -->
 	<h2>Detail Nota Pembelian</h2>
 <?php
@@ -115,6 +97,3 @@ if ($idpelangganyangbeli!==$idpelangganyanglogin)
 	</div>
 	</div>
 </section>
-
-</body>
-</html>
