@@ -30,6 +30,16 @@ include 'koneksi.php';
 				# code...
 				include_once('keranjang.php');
 				break;
+
+			case 'riwayat-belanja':
+				# code...
+				include_once('riwayat.php');
+				break;
+
+			case 'nota':
+				# code...
+				include_once('nota.php');
+				break;
 			
 			default:
 				# default page

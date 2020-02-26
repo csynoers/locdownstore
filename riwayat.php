@@ -1,9 +1,4 @@
 <?php
-session_start();
-//koneksi ke database
-include 'koneksi.php';
-
-
 // jika tidak ada session pelanggan (belum login)
 if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"])) 
 {
@@ -12,21 +7,6 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 	exit();
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Locdown Store</title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-</head>
- <?php include'header.php'; ?>
-<body>
-
-
-<?php include 'menu.php'; ?>
-
-
-
 <section class="riwayat">
 	<div class="container">
 		<h3>Riwayat Belanja <?php echo $_SESSION["pelanggan"]["nama_pelanggan"] ?></h3>
@@ -62,11 +42,11 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 						</td>
 					<td>Rp. <?php echo number_format($pecah["total_pembelian"]) ?></td>
 					<td>
-						<a href="nota.php?id=<?php echo $pecah["id_pembelian"] ?>" class="btn btn-info">Nota</a>
+						<a href="index.php?page=nota&id=<?php echo $pecah["id_pembelian"] ?>" class="btn btn-info">Nota</a>
 						<?php if ($pecah['status_pembelian']=="pending"): ?>
-						<a href="pembayaran.php?id=<?php echo $pecah["id_pembelian"];?>" class="btn btn-success">Input Pembayaran</a>
+						<a href="index.php?page=pembayaran&id=<?php echo $pecah["id_pembelian"];?>" class="btn btn-success">Input Pembayaran</a>
 						<?php else: ?>
-							<a href="lihat_pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?>" class="btn btn-warning">Lihat Pembayaran</a>
+							<a href="index.php?page=lihat_pembayaran&id=<?php echo $pecah["id_pembelian"]; ?>" class="btn btn-warning">Lihat Pembayaran</a>
 					<?php endif ?>
 					</td>
 				</tr>
@@ -76,6 +56,3 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 		</table>
 	</div>
 </section>
-
-</body>
-</html>

@@ -13,7 +13,7 @@
 			<li><a href="index.php?page=keranjang" class="fa fa-shopping-cart" >Keranjang</a></li>
 			<!-- jika sudah login(ada session pelanggan) -->
 			<?php if (isset($_SESSION["pelanggan"])): ?>
-				<li><a href="riwayat.php" class="fa fa-sign-in">Riwayat Belanja</a></li>
+				<li><a href="index.php?page=riwayat-belanja" class="fa fa-sign-in">Riwayat Belanja</a></li>
 				<li><a href="logout.php" class="fa fa-sign-in">Logout</a></li>	
 			<!-- selain itu(belom login||belom ada session pelanggan) -->
 			<?php else: ?>
