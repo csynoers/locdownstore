@@ -51,11 +51,11 @@ if (isset($_POST["login"]))
 		// jika sudah belanja
 		if (isset($_SESSION["keranjang"]) OR !empty($_SESSION["keranjang"])) 
 		{
-			echo "<script>location='checkout.php';</script>";
+			echo "<script>location='index.php?page=checkout';</script>";
 		}
 		else
 		{
-			echo "<script>location='riwayat.php';</script>";
+			echo "<script>location='index.php?page=riwayat-belanja';</script>";
 		}	
 	}
 	else

@@ -46,6 +46,6 @@
 		</table> 
 
 		<a href="index.php" class="btn btn-default">Lanjutkan Belanja</a>
-		<a href="checkout.php" class="btn btn-primary">Checkout</a>
+		<a href="index.php?page=checkout" class="btn btn-primary">Checkout</a>
 	</div>
 </section>

@@ -7,7 +7,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 	exit();
 }
 ?>
-<section class="riwayat">
+<section class="riwayat wrap-content">
 	<div class="container">
 		<h3>Riwayat Belanja <?php echo $_SESSION["pelanggan"]["nama_pelanggan"] ?></h3>
 
