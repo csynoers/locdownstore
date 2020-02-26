@@ -1,30 +1,11 @@
 <?php
-session_start();
-include 'koneksi.php';
-
-
-// jika tidak ada session pelanggan(belom login,) maka dilarikan ke login.php
-if (!isset($_SESSION["pelanggan"])) 
-{
-	echo "<script>alert('silahkan login');</script>";
-	echo "<script>location='login.php';</script>";
-}
+	// jika tidak ada session pelanggan(belom login,) maka dilarikan ke login.php
+	if (!isset($_SESSION["pelanggan"])) 
+	{
+		echo "<script>alert('silahkan login');</script>";
+		echo "<script>location='login.php';</script>";
+	}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-		<title>Checkout</title>
-		<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
-		<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-	</head>
-	<?php include'header.php'; ?>
-	<body>
-
-<!-- navbar -->
-<?php include 'menu.php'; ?>
-
-
-
 <section class="konten">
 	<div class="container">
 		<h1>Keranjang Belanja</h1>
@@ -173,11 +154,3 @@ if (!isset($_SESSION["pelanggan"]))
  
 	</div>
 </section>
-
-
-
-
-
-
-</body>
-</html>

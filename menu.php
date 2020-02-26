@@ -21,11 +21,12 @@
 				<li><a href="daftar.php" class="fa fa-list">Daftar</a></li>
 			<?php endif ?>
 			
-			<li><a href="checkout.php"class="fa fa-sign-out">Checkout</a></li>
+			<li><a href="index.php?page=checkout"class="fa fa-sign-out">Checkout</a></li>
 			<li><a href="" class="fa fa-thumb-tack">Lokasi Kami</a></li>
 		</ul>
 
-		<form action="pencarian.php" method="get" class="navbar-form navbar-right">
+		<form action="index.php" method="get" class="navbar-form navbar-right">
+			<input type="hidden" class="form-control" name="page" value="pencarian">
 			<input type="text" class="form-control" name="keyword">
 			<button class="btn btn-primary">Cari</button>
 		</form>

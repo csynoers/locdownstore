@@ -45,6 +45,16 @@ include 'koneksi.php';
 				# code...
 				include_once('lihat_pembayaran.php');
 				break;
+
+			case 'checkout':
+				# code...
+				include_once('checkout.php');
+				break;
+
+			case 'pencarian':
+				# code...
+				include_once('pencarian.php');
+				break;
 			
 			default:
 				# default page
