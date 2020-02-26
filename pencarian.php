@@ -1,4 +1,3 @@
-<?php include 'koneksi.php'; ?>
 <?php
 $keyword = $_GET["keyword"];
 
@@ -14,16 +13,7 @@ while ($pecah = $ambil->fetch_assoc())
 // print_r($semuadata);
 // echo "</pre>";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Pencarian</title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-</head>
-<body>
-	<?php include 'menu.php'; ?>
-	<div class="container">
+	<div class="container wrap-content">
 		<h3>Hasil Pencarian : <?php echo $keyword ?></h3>
 
 		<?php if (empty($semuadata)): ?>
@@ -51,7 +41,3 @@ while ($pecah = $ambil->fetch_assoc())
 
 		</div>
 	</div>
-
-
-</body>
-</html>

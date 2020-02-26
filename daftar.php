@@ -1,14 +1,3 @@
-<?php include 'koneksi.php'; ?>
-<html>
-<head>
-	<title>Daftar</title>
-	<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-</head>
-<?php include'header.php'; ?>
-<body>
-	<?php include 'menu.php'; ?>
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -92,6 +81,3 @@
 			</div>
 		</div>
 	</div>
-
-</body>
-</html>

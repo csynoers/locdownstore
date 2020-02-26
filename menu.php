@@ -17,8 +17,8 @@
 				<li><a href="logout.php" class="fa fa-sign-in">Logout</a></li>	
 			<!-- selain itu(belom login||belom ada session pelanggan) -->
 			<?php else: ?>
-				<li><a href="login.php"class="fa fa-sign-in">Login</a></li>
-				<li><a href="daftar.php" class="fa fa-list">Daftar</a></li>
+				<li><a href="index.php?page=login"class="fa fa-sign-in">Login</a></li>
+				<li><a href="index.php?page=daftar" class="fa fa-list">Daftar</a></li>
 			<?php endif ?>
 			
 			<li><a href="index.php?page=checkout"class="fa fa-sign-out">Checkout</a></li>

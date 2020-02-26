@@ -1,24 +1,6 @@
-<?php
-session_start();
-include 'koneksi.php';
-?>
-<!DOCTYPE html>
-<html>
-<head>
-		<title>Login Pelanggan</title>
-		<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
-		<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-	</head>
-	<?php include'header.php'; ?>
-	<body>
-
-
-<!-- navbar -->
-<?php include 'menu.php'; ?>
-
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
+		<div class="rowXXX">
+			<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-tittle">Login Pelanggan</h3>
@@ -34,7 +16,7 @@ include 'koneksi.php';
 							<input type="password" class="form-control" name="password">
 						</div>
 						<button class="btn btn-primary" name="login">Login</button> Anda Belum memiliki akun ? <br>
-						<li><a href="daftar.php">Daftar Di sini !</a></li> 
+						<li><a href="index.php?page=daftar">Daftar Di sini !</a></li> 
 				</div>
 			</div>	
 
@@ -85,10 +67,3 @@ if (isset($_POST["login"]))
 }
 
 ?>
-
-
-
-
-
-</body>
-</html>

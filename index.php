@@ -55,6 +55,16 @@ include 'koneksi.php';
 				# code...
 				include_once('pencarian.php');
 				break;
+
+			case 'login':
+				# code...
+				include_once('login.php');
+				break;
+
+			case 'daftar':
+				# code...
+				include_once('daftar.php');
+				break;
 			
 			default:
 				# default page
