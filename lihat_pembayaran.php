@@ -1,7 +1,4 @@
 <?php
-session_start();
-include 'koneksi.php';
-
 $id_pembelian = $_GET["id"];
 
 $ambil = $koneksi->query("SELECT * FROM Pembayaran
@@ -32,17 +29,6 @@ if ($_SESSION["pelanggan"]['id_pelanggan']!==$detbay["id_pelanggan"])
 	exit();
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Lihat Pembayaran</title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-</head>
-<body>
-
-	<?php include 'menu.php'; ?>
-
 	<div class="container">
 		<h3>Lihat Pembayaran</h3>
 		<div class="row">
@@ -71,6 +57,3 @@ if ($_SESSION["pelanggan"]['id_pelanggan']!==$detbay["id_pelanggan"])
 			</div>
 		</div>
 	</div>
-
-</body>
-</html>

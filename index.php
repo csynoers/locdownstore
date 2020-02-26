@@ -40,6 +40,11 @@ include 'koneksi.php';
 				# code...
 				include_once('nota.php');
 				break;
+
+			case 'lihat_pembayaran':
+				# code...
+				include_once('lihat_pembayaran.php');
+				break;
 			
 			default:
 				# default page
