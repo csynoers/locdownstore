@@ -1,28 +1,11 @@
 <?php
-session_start();
-include 'koneksi.php';
-
-if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
-{
-	echo "<script>alert('keranjang kosong, silahkan belanja dulu');</script>";
-	echo "<script>location='index.php';</script>";
-}
+	if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
+	{
+		echo "<script>alert('keranjang kosong, silahkan belanja dulu');</script>";
+		echo "<script>location='index.php';</script>";
+	}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>KeranjangBelanja</title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-</head>
-<body>
-<?php include'header.php'; ?>
-
-<!-- navbar -->
-<?php include 'menu.php'; ?>
-
-
-<section class="konten">
+<section class="konten wrap-content">
 	<div class="container">
 		<h1>Keranjang Belanja</h1>
 		<hr>
@@ -66,10 +49,3 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 		<a href="checkout.php" class="btn btn-primary">Checkout</a>
 	</div>
 </section>
-
-
-
-
-</body>
- <?php include'footer.php'; ?>
-</html>

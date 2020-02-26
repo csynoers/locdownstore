@@ -25,6 +25,11 @@ include 'koneksi.php';
 				# code...
 				include_once('detail.php');
 				break;
+
+			case 'keranjang':
+				# code...
+				include_once('keranjang.php');
+				break;
 			
 			default:
 				# default page

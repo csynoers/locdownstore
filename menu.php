@@ -10,7 +10,7 @@
 		<ul class="nav navbar navbar-nav">
 			<li><a href="index.php" class="icon fa fa-home">Home</a></li>
 			<li><a href="index.php?page=cara-pembelian" class="">Cara Pembelian</a></li>
-			<li><a href="keranjang.php" class="fa fa-shopping-cart" >Keranjang</a></li>
+			<li><a href="index.php?page=keranjang" class="fa fa-shopping-cart" >Keranjang</a></li>
 			<!-- jika sudah login(ada session pelanggan) -->
 			<?php if (isset($_SESSION["pelanggan"])): ?>
 				<li><a href="riwayat.php" class="fa fa-sign-in">Riwayat Belanja</a></li>
