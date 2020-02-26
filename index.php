@@ -20,6 +20,11 @@ include 'koneksi.php';
 				# code...
 				include_once('cara_pembelian.php');
 				break;
+
+			case 'detail-produk':
+				# code...
+				include_once('detail.php');
+				break;
 			
 			default:
 				# default page
@@ -40,7 +45,7 @@ include 'koneksi.php';
 														<h3>{$value->nama_produk}</h3>
 														<h5>Rp. {$value->harga_produk_idr}</h5>
 														<a href='beli.php?id={$value->id_produk}' class='btn btn-primary'>Beli</a>
-														<a href='detail.php?id={$value->id_produk}' class='btn btn-default'>Detail</a>
+														<a href='index.php?page=detail-produk&id={$value->id_produk}' class='btn btn-default'>Detail</a>
 													</div>
 												</div>
 											</div>

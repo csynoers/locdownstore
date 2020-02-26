@@ -1,31 +1,13 @@
-<?php session_start(); ?>
-<?php include 'koneksi.php'; ?>
 <?php
-//mendapatkan id_produk dari url
-$id_produk=$_GET["id"];
+	//mendapatkan id_produk dari url
+	$id_produk=$_GET["id"];
 
-// query ambil data
-$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-$detail = $ambil->fetch_assoc();
-
-//echo "<pre>";
-//print_r($detail);
-//echo "</pre>";
+	// query ambil data
+	$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+	$detail = $ambil->fetch_assoc();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>detail produk</title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
-	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
 
-</head>
-<?php include'header.php'; ?>
-<body>
-
-<?php include 'menu.php'; ?>
-
-<section class="kontent">
+<section class="kontent wrap-content">
 	<div class="container">
 		<div class="col-md-6">
 			<img src="foto_produk/<?php echo $detail["foto_produk"]; ?>" alt="" class="img-responsive">
@@ -65,10 +47,3 @@ $detail = $ambil->fetch_assoc();
 		</div>
 	</div>
 </section>
-
-
-
-
-
-</body>
-</html>

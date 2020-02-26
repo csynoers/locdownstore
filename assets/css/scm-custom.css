@@ -37,6 +37,7 @@ footer h3.deskripsi{
 /* scm custom */
 .wrap-content {
     min-height: 360px !important;
+    margin-bottom: 3rem;
 }
 .footer-content {
     padding: 3rem 0rem;
