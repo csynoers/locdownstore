@@ -1,0 +1,35 @@
+header{
+    background-color: #E6E6FA;
+    padding:  30px 10px;
+    border-radius: 5px;
+    border: 1px solid #FFFFE0;
+    margin-bottom: 10px;
+}
+
+h4{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+header h1.judul,
+header h3.deskripsi{
+    text-align: center;
+}
+
+footer{
+    background-color: #000000;
+    padding:  30px 10px;
+    border-radius: 5px;
+    border: 1px solid #FFFFE0;
+    margin-bottom: 10px;
+}
+
+h4{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+footer h1.judul,
+footer h3.deskripsi{
+    text-align: center;
+}

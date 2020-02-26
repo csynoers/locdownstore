@@ -9,7 +9,6 @@ include 'koneksi.php';
 		<link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.css">
 		<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
 	</head>
-	<?php include'header.php'; ?>
 	<body>
 
 
