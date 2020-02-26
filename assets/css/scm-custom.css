@@ -33,3 +33,14 @@ footer h1.judul,
 footer h3.deskripsi{
     text-align: center;
 }
+
+/* scm custom */
+.wrap-content {
+    min-height: 360px !important;
+}
+.footer-content {
+    padding: 3rem 0rem;
+    border-radius: unset;
+    margin-bottom: 0px !important;
+}
+/* scm custom */

@@ -24,7 +24,7 @@ include 'koneksi.php';
 			default:
 				# default page
 				?>
-					<section class="konten">
+					<section class="konten wrap-content">
 						<div class="container">
 							<h1>Produk Terbaru</h1>
 							<div class="row">
