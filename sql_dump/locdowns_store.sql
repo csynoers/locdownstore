@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 26, 2020 at 08:48 PM
--- Server version: 10.2.26-MariaDB-cll-lve
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Generation Time: Feb 27, 2020 at 03:33 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -62,7 +62,8 @@ CREATE TABLE `pelanggan` (
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `email_pelanggan`, `password_pelanggan`, `nama_pelanggan`, `telepon_pelanggan`) VALUES
 (1, 'danangwahyu@gmail.com', 'danang', 'Danang Wahyu', '085868832676'),
-(2, 'adityarafif@gmail.com', 'aditya', 'Aditya Rafif', '085868832677');
+(2, 'adityarafif@gmail.com', 'aditya', 'Aditya Rafif', '085868832677'),
+(3, 'sinur@gmail.com', 'sinur', 'sinur', '08123456789');
 
 -- --------------------------------------------------------
 
@@ -127,8 +128,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`) VALUES
-(1, 'Zip Hoodie', 150000, 5, 'zip.jpg', 'bagus'),
-(2, 'T-shirt', 75000, 2, 'ts.jpg', 'mantapp');
+(1, 'Zip Hoodie', 150000, 5, 'Hoodie berak.jpg', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
+(2, 'T-shirt', 75000, 2, 'T-Shirt Dickies.jpg', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
 
 --
 -- Indexes for dumped tables
@@ -178,7 +179,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
