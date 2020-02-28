@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2020 at 03:33 AM
+-- Generation Time: Feb 28, 2020 at 03:27 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -77,16 +77,20 @@ CREATE TABLE `pembelian` (
   `tanggal_pembelian` date NOT NULL,
   `total_pembelian` int(11) NOT NULL,
   `external_id` char(64) NOT NULL,
-  `invoice_url` tinytext NOT NULL
+  `invoice_url` tinytext NOT NULL,
+  `status_pembayaran` enum('belum_dibayar','sudah_dibayar','kadaluarsa') NOT NULL,
+  `metode_pembayaran` varchar(150) DEFAULT NULL,
+  `status_pesanan` enum('sedang_dikemas','sedang_dikirim','selesai') DEFAULT NULL,
+  `no_resi` char(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pembelian`
 --
 
-INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `tanggal_pembelian`, `total_pembelian`, `external_id`, `invoice_url`) VALUES
-(1, 1, '2020-01-10', 200000, '', ''),
-(2, 1, '2020-01-11', 150000, '', '');
+INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `tanggal_pembelian`, `total_pembelian`, `external_id`, `invoice_url`, `status_pembayaran`, `metode_pembayaran`, `status_pesanan`, `no_resi`) VALUES
+(1, 1, '2020-01-10', 200000, '', '', 'belum_dibayar', NULL, NULL, ''),
+(2, 1, '2020-01-11', 150000, '', '', 'belum_dibayar', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
