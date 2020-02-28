@@ -6,7 +6,7 @@
 		echo "<script>location='login.php';</script>";
 	}
 ?>
-<section class="konten">
+<section class="konten wrap-content">
 	<div class="container">
 		<h1>Keranjang Belanja</h1>
 		<hr>
@@ -52,7 +52,7 @@
 			</tfoot>
 		</table> 
 
-	<form method="post">
+	<form id="formCheckout" action="javascript:void(0)" method="post">
 
 		<div class="row">
 			<div class="col-md-4">
@@ -68,30 +68,12 @@
 			<div class="col-md-4">
 				<select class="form-control" name="id_ongkir">
 					<option value="">Pilih Ongkos Kirim</option>
-					<?php
-					$ambil = $koneksi -> query("SELECT * FROM ongkir");
-					while ($perongkir = $ambil -> fetch_assoc()) {	
-					?>
-					<option value="<?php echo $perongkir["id_ongkir"] ?>">
-						<?php echo $perongkir['nama_kota'] ?> -
-						Rp. <?php echo number_format($perongkir['tarif']) ?>
-					</option>
-				<?php } ?>
+					<option data-kurir="jne" data-harga="20000" value="">JNE Rp 20.000</option>
 				</select>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<select class="form-control" name="jasa_pengiriman">
-				<option value="">Pilih Jasa Pengiriman</option>
-				<option value="">JNE</option>
-				<option value="">TIKI</option>
-			</select>
-		</div> <br>
-		<div class="form-group">
-			<label>Alamat Lengkap Pengiriman</label>
-			<textarea class="form-control" name="alamat_pengiriman" placeholder="masukan alamat lengkap pengiriman(termasuk kode pos)"></textarea>
-		</div>
-		<button class="btn btn-primary" name="checkout">Checkout</button>
+		<input type="text" name="email" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>">
+		<button type="submit" class="btn btn-primary" name="checkout">Checkout</button>
 	</form>
 
 	<?php 
@@ -154,3 +136,10 @@
  
 	</div>
 </section>
+<script>
+	(function(j){
+		j('form#formCheckout').on('submit',function(){
+			
+		})
+	})(jQuery)
+</script>

@@ -10,6 +10,7 @@ include 'koneksi.php';
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
 	<link rel="stylesheet" href="assets/css/scm-custom.css">
+	<script src="admin/assets/js/jquery-1.10.2.js"></script>
 </head>
 <body>
 	<?php
