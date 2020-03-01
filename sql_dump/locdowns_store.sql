@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2020 at 03:27 AM
+-- Generation Time: Mar 01, 2020 at 03:08 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -72,25 +72,19 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `email_pelanggan`, `password_pelanggan`
 --
 
 CREATE TABLE `pembelian` (
-  `id_pembelian` int(11) NOT NULL,
+  `id_pembelian` char(14) NOT NULL,
   `id_pelanggan` int(11) NOT NULL,
-  `tanggal_pembelian` date NOT NULL,
+  `tanggal_pembelian` datetime NOT NULL,
   `total_pembelian` int(11) NOT NULL,
   `external_id` char(64) NOT NULL,
   `invoice_url` tinytext NOT NULL,
   `status_pembayaran` enum('belum_dibayar','sudah_dibayar','kadaluarsa') NOT NULL,
   `metode_pembayaran` varchar(150) DEFAULT NULL,
   `status_pesanan` enum('sedang_dikemas','sedang_dikirim','selesai') DEFAULT NULL,
-  `no_resi` char(64) DEFAULT NULL
+  `no_resi` char(64) DEFAULT NULL,
+  `kurir` tinytext,
+  `alamat_pengiriman` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pembelian`
---
-
-INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `tanggal_pembelian`, `total_pembelian`, `external_id`, `invoice_url`, `status_pembayaran`, `metode_pembayaran`, `status_pesanan`, `no_resi`) VALUES
-(1, 1, '2020-01-10', 200000, '', '', 'belum_dibayar', NULL, NULL, ''),
-(2, 1, '2020-01-11', 150000, '', '', 'belum_dibayar', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -100,17 +94,9 @@ INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `tanggal_pembelian`, `t
 
 CREATE TABLE `pembelian_produk` (
   `id_pembelian_produk` int(11) NOT NULL,
-  `id_pembelian` int(11) NOT NULL,
+  `id_pembelian` char(14) NOT NULL,
   `id_produk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pembelian_produk`
---
-
-INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produk`) VALUES
-(1, 1, 1),
-(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -186,16 +172,10 @@ ALTER TABLE `pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pembelian`
---
-ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produk`
