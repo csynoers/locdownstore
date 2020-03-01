@@ -7,6 +7,7 @@
             parent::__construct();
             $this->db = new DB();
             $this->xendit = new Xendit();
+            $this->update();
         }
 
         public function update ()
