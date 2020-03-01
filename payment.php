@@ -1,12 +1,8 @@
 <?php
     include_once("koneksi.php");
-    class Payment extends DB {
-        protected $db;
-        public $xendit;
+    class Payment {
         function __construct () {
-            parent::__construct();
             $this->db = new DB();
-            $this->xendit = new Xendit();
             $this->update();
         }
 
@@ -24,13 +20,13 @@
                     case 'PAID':
                         # code controller paid payment here...
                         $this->db->query = "UPDATE `pembelian` SET `status_pembayaran`='sudah_dibayar',`status_pesanan`='sedang_dikemas' WHERE `external_id`='{$result->id}' ";
-                        $this->db->query();
+                        $this->db->query_exec();
                         break;
                     
                     case 'EXPIRED':
                         # code controller expired payment here...
                         $this->db->query = "UPDATE `pembelian` SET `status_pembayaran`='kadaluarsa' WHERE `external_id`='{$result->id}' ";
-                        $this->db->query();
+                        $this->db->query_exec();
                         break;
                     
                     default:
