@@ -79,17 +79,17 @@
 				</select>
 			</div>
 		</div>
-		<input type="text" name="id" value="<?= $_SESSION['order_id'] ?>">
-		<input type="text" name="amount" value="<?= $totalbelanja ?>">
-		<input type="text" name="email" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>">
-		<input type="text" name="keterangan" value="pembayaran produk : <?= implode(',',$items) ?>">
+		<input type="hidden" name="id" value="<?= $_SESSION['order_id'] ?>">
+		<input type="hidden" name="amount" value="<?= $totalbelanja ?>">
+		<input type="hidden" name="email" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>">
+		<input type="hidden" name="keterangan" value="pembayaran produk : <?= implode(',',$items) ?>">
 		<button type="submit" class="btn btn-primary" name="checkout">Checkout</button>
 	</form>
 
 	<?php
-	echo '<pre>';
-	print_r($_SESSION); 
-	echo '</pre>';
+	// echo '<pre>';
+	// print_r($_SESSION); 
+	// echo '</pre>';
 	if (isset($_POST["checkout"]))
 	{
 		$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
