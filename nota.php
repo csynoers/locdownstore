@@ -69,7 +69,7 @@ if ($idpelangganyangbeli!==$idpelangganyanglogin)
 	<tbody>
 	<?php $nomor=1;?>
 	<?php $ambil=$koneksi->query("SELECT * FROM pembelian_produk WHERE id_pembelian='$_GET[id]'"); ?>
-	<?php while($pecah=$ambil->fetch_assoc()){ echo json_encode($pecah);?>
+	<?php while($pecah=$ambil->fetch_assoc()){ //echo json_encode($pecah);?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['nama']; ?></td>

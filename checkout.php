@@ -5,6 +5,10 @@
 		echo "<script>alert('silahkan login');</script>";
 		echo "<script>location='index.php?page=login';</script>";
 	}else {
+		if ( ! $_SESSION["keranjang"] ) {
+			echo "<script>alert('keranjang kosong, silahkan belanja dulu');</script>";
+			echo "<script>location='index.php';</script>";
+		}
 		$_SESSION['order_id'] = date('YmdHis');
 	}
 ?>
