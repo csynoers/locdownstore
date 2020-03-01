@@ -3,7 +3,9 @@
 	if (!isset($_SESSION["pelanggan"])) 
 	{
 		echo "<script>alert('silahkan login');</script>";
-		echo "<script>location='login.php';</script>";
+		echo "<script>location='index.php?page=login';</script>";
+	}else {
+		$_SESSION['order_id'] = date('YmdHis');
 	}
 ?>
 <section class="konten wrap-content">
@@ -24,13 +26,14 @@
 			<tbody>
 			<?php $nomor=1;?>
 			<?php $totalbelanja = 0; ?>
-			<?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah):?>
-			<!-- menampilkan produk yang sedang diperulangkan berdasarkan id_produk -->
 			<?php
-			$ambil = $koneksi->query("SELECT * FROM produk 
-				WHERE id_produk='$id_produk'");
-			$pecah = $ambil->fetch_assoc();
-			$subharga = $pecah["harga_produk"]*$jumlah;
+				$items = [];
+			foreach ($_SESSION["keranjang"] as $id_produk => $jumlah):
+				// menampilkan produk yang sedang diperulangkan berdasarkan id_produk
+				$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+				$pecah = $ambil->fetch_assoc();
+				$subharga = $pecah["harga_produk"]*$jumlah;
+				$items[] = "{$jumlah} {$pecah["nama_produk"]}";
 				?>
 				<tr>
 					<td><?php echo $nomor; ?></td>	
@@ -66,17 +69,23 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<select class="form-control" name="id_ongkir">
-					<option value="">Pilih Ongkos Kirim</option>
-					<option data-kurir="jne" data-harga="20000" value="">JNE Rp 20.000</option>
+				<select class="form-control" id="kurir" required>
+					<option value="" selected disabled>Pilih Ongkos Kirim</option>
+					<option data-kurir="jne" data-harga="20000" value="jne-20000">JNE Rp 20.000</option>
 				</select>
 			</div>
 		</div>
+		<input type="text" name="id" value="<?= $_SESSION['order_id'] ?>">
+		<input type="text" name="amount" value="<?= $totalbelanja ?>">
 		<input type="text" name="email" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>">
+		<input type="text" name="keterangan" value="pembayaran produk : <?= implode(',',$items) ?>">
 		<button type="submit" class="btn btn-primary" name="checkout">Checkout</button>
 	</form>
 
-	<?php 
+	<?php
+	echo '<pre>';
+	print_r($_SESSION); 
+	echo '</pre>';
 	if (isset($_POST["checkout"]))
 	{
 		$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
@@ -138,8 +147,19 @@
 </section>
 <script>
 	(function(j){
+		j('#kurir').on('change',function(){
+			let kurir_value = $(this).find(':selected').data('harga');
+			let amount = $('#formCheckout').find('input[name=amount]');
+			amount.val((amount.val()*1)+(kurir_value*1));
+		})
 		j('form#formCheckout').on('submit',function(){
-			
+			$.get('create_invoice.php',$( this ).serialize(),function(d){
+				if ( d.status == 'true' ) {
+					window.location.assign(d.url);
+				} else {
+					
+				}
+			},'json');
 		})
 	})(jQuery)
 </script>

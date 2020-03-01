@@ -13,7 +13,7 @@
     /**
      * setting konfigurasi XENDIT
      */
-    define("XENDIT_API_KEY","secret_api_key");
+    define("XENDIT_API_KEY","xnd_development_iSkAxVRSCnwSVyvnC4lQR7rRnuSgO4CNmtWNIetIeRRayMJTZV6JEhl0Th3");
 
     /* set config connection procedural */
     $koneksi = new mysqli(HOST,USERNAME,PASSWORD,DATABASE);
