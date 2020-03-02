@@ -30,13 +30,17 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 				$db->query = ("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
 				foreach ($db->query() as $key => $value) {
 					// echo json_encode($value);
-					$value->status_pembayaran_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
+					$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
+
+					if ( $value->metode_pembayaran ) {
+						$value->status_mod .= '<br> ' . $value->metode_pembayaran;
+					}
 					?>
 				<tr>
 					<td><?php echo $nomor; ?></td>
 					<td><?= $value->tanggal_pembelian ?></td>
 					<td>
-						<?= $value->status_pembayaran_mod ?>
+						<?= $value->status_mod ?>
 							<br>
 							<?php if (!empty($pecah['resi_pengiriman'])): ?>
 								Resi : <?php echo $pecah['resi_pengiriman']; ?>
