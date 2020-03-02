@@ -11,11 +11,14 @@
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $this->data                     = [];
                 $this->data['response']         = file_get_contents("php://input");
+                
                 $this->data['responseDecode']   = json_decode($this->data['response']);
-
+                
                 # get data id for WHERE condition to change field tabel in your database
                 $this->data['id']               = $this->data['responseDecode']->id;
-
+                
+                // $this->db->query = "INSERT INTO tes(des) VALUES ('{$this->data['response']}') ";
+                // $this->db->query_exec();
                 switch ( $this->data['responseDecode']->status ) {
                     case 'PAID':
                         # code controller paid payment here...
