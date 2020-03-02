@@ -37,7 +37,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 					}
 
 					if ( $value->metode_pembayaran ) {
-						$value->status_mod .= '<br> ' . $value->metode_pembayaran;
+						$value->status_mod .= "<br><small><small>{$value->metode_pembayaran}</small></small> " ;
 					}
 					?>
 				<tr>
