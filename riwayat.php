@@ -32,6 +32,10 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 					// echo json_encode($value);
 					$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
 
+					if ( $value->status_pesanan ) {
+						$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pesananan));
+					}
+
 					if ( $value->metode_pembayaran ) {
 						$value->status_mod .= '<br> ' . $value->metode_pembayaran;
 					}
