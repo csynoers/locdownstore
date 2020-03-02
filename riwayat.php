@@ -29,7 +29,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 
 				$db->query = ("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
 				foreach ($db->query() as $key => $value) {
-					// echo json_encode($value);
+					echo json_encode($value);
 					$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
 
 					if ( $value->status_pesanan ) {
