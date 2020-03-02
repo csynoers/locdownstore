@@ -36,9 +36,9 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 						$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pesanan));
 					}
 
-					if ( $value->metode_pembayaran ) {
-						$value->status_mod .= "<br><small><small>{$value->metode_pembayaran}</small></small> " ;
-					}
+					// if ( $value->metode_pembayaran ) {
+					// 	$value->status_mod .= "<br><small><small>{$value->metode_pembayaran}</small></small> " ;
+					// }
 					?>
 				<tr>
 					<td><?php echo $nomor; ?></td>
