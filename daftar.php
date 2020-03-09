@@ -29,6 +29,11 @@
 									<label >Provinsi</label>
 									<select class="form-control" name="provinsi" id="" required="">
 										<option value="" selected disabled> -- Pilih Provinsi --</option>
+										<?php
+											foreach (json_decode($rajaongkir->province())->rajaongkir->results as $key => $value) {
+												echo "<option value='{$value->province_id}'>{$value->province}</option>";
+											}
+										?>
 									</select>
 								</div>
 								<div class="form-group col-md-5">
@@ -43,11 +48,16 @@
 								</div>
 								<div class="form-group col-md-12">
 									<label >Alamat</label>
-									<textarea class="form-control" name="alamat" placeholder="Nama gedung, jalan dan lainnya ..." required=""></textarea>
+									<textarea class="form-control" name="alamat" placeholder="Nama gedung, jalan, desa, kecamatan dan lainnya ..." required=""></textarea>
 								</div>
 							</div>
 							<hr>
 							<button class="btn btn-block btn-primary" name="daftar">Daftar</button>
+							<hr>
+							<p class="text-center">
+								Sudah memiliki akun ? 
+								<a href="index.php?page=login">Login disini !</a></li> 
+							</p>
 						</form>
 						<?php
 						// jika ada tombol daftar(ditekan tombol daftar)

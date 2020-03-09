@@ -107,7 +107,7 @@ include 'koneksi.php';
 	?>
 	<script>
 		(function( j ){
-			let thumbnail_product = j('.thumbnail-product');
+			let thumbnail_product = j( '.thumbnail-product' );
 			j.each( thumbnail_product, function(){
 				let thumbnail_product_src = j( this ).data( 'src' );
 				
@@ -115,6 +115,30 @@ include 'koneksi.php';
 				j( this ).css( 'background-image' , `url('${thumbnail_product_src}')` )
 				console.log( thumbnail_product_src )
 			} )
+
+			/* ketika provinsi dipilih */
+			j( 'select[name=provinsi]' ).on( 'change',function(){
+				/* set default input kode_pos */
+				j( 'input[name=kode_pos]' ).val( '' );
+
+				let province_id = j( this ).val();
+
+				/* ambil data kota berdasarkan provinsi yang dipilih */
+				j.get( 'get_kota.php',{ "province_id" : province_id }, function( html ){
+					/* replace html option kota */
+					j( 'select[name=kota]' ).html( html );
+					
+					/* ketika kota dipilih ambil data-postal-code */
+					j( 'select[name=kota]' ).on( 'change',function(){
+						let postal_code = j( this ).find( ':selected' ).data( 'postal-code' );
+						console.log( postal_code );
+
+						/* replace value input kota dengan postal_code */
+						j( 'input[name=kode_pos]' ).val( postal_code );
+					} );
+				},'html')
+				console.log( province_id );
+			})
 		})( jQuery )
 	</script>
 	</body>
