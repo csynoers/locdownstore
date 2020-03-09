@@ -44,7 +44,7 @@ if (isset($_POST['save']))
 		INSERT INTO produk
 			(nama_produk,harga_produk,berat_produk,stok_produk,foto_produk,deskripsi_produk)
 		VALUES
-			('$_POST[nama]','$_POST[harga]','$_POST[berat]','$_POST[stok]','$newfilename','$_POST[deskripsi]')
+			('$_POST[nama]','$_POST[harga]','$_POST[berat]','$_POST[stok]','$newfilename','".str_replace("'","\'",strip_tags($_POST['deskripsi']))."')
 	");
 	$insert = $db->query_exec();
 
@@ -55,7 +55,7 @@ if (isset($_POST['save']))
 
 	} else { # jika gagal
 		echo "<script>alert('Data gagal disimpan')</script>";
-		
+
 	}
 }
 ?>
