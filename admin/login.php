@@ -44,12 +44,12 @@
              <div class="form-group input-group">
              
               <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-              <input type="text" class="form-control" name="user" />
+              <input type="text" class="form-control" name="user" placeholder="masukan username" autocomplete="off" required="">
             </div>
             <label>Password</label>
             <div class="form-group input-group">
               <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-              <input type="password" class="form-control"  name="pass" />
+              <input type="password" class="form-control"  name="pass" placeholder="**********" autocomplete="off" required="">
             </div>
             <div class="form-group">
               <label class="checkbox-inline">
