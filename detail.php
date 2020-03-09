@@ -10,7 +10,7 @@
 <section class="kontent wrap-content">
 	<div class="container">
 		<div class="col-md-6">
-			<img src="foto_produk/<?php echo $detail["foto_produk"]; ?>" alt="" class="img-responsive">
+			<img src="gambar/produk/<?php echo $detail["foto_produk"]; ?>" alt="" class="img-responsive">
 		</div>
 		<div class="col-md-6">
 			<h2><?php echo $detail["nama_produk"] ?></h2>
