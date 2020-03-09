@@ -1,7 +1,7 @@
 <?php
-session_start();
-//skrip koneksi
-$koneksi=new mysqli("localhost","root","","danang");
+  session_start();
+  #load koneksi database
+  include_once('../koneksi.php');
 ?>
 
 <!DOCTYPE html>

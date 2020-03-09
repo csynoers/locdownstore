@@ -9,7 +9,7 @@ include 'koneksi.php';
 	<title>Locdown Store</title>
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-	<link rel="stylesheet" href="assets/css/scm-custom.css">
+	<link rel="stylesheet" href="assets/css/scm-custom.css?v=0.1">
 	<script src="admin/assets/js/jquery-1.10.2.js"></script>
 </head>
 <body>
