@@ -12,6 +12,7 @@ if (!isset($_SESSION['admin']))
     // exit();
 }
 
+$halaman = empty($_GET['halaman']) ? NULL : $_GET['halaman'] ;
 
 ?>
 <!DOCTYPE html> 
@@ -61,12 +62,12 @@ font-size: 16px;">&nbsp; <a href="logout.php" class="btn btn-danger square-btn-a
 					</li>
 				
 					
-                    <li> <a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li> <a href="index.php?halaman=produk"><i class="fa fa-cubes"></i> Produk</a></li>
-                    <li> <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Pembelian</a></li>
-                    <li> <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file"></i> Laporan</a></li>
-                    <li> <a href="index.php?halaman=pelanggan"><i class="fa fa-user"></i> Pelanggan</a></li>
-                    <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    <li class="<?= ($halaman==''? 'bg-color-red' : NULL ) ?>"> <a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="<?= ($halaman=='produk'? 'bg-color-red' : NULL ) ?>"> <a href="index.php?halaman=produk"><i class="fa fa-cubes"></i> Produk</a></li>
+                    <li class="<?= ($halaman=='pembelian'? 'bg-color-red' : NULL ) ?>"> <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Pembelian</a></li>
+                    <li class="<?= ($halaman=='laporan_pembelian'? 'bg-color-red' : NULL ) ?>"> <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file"></i> Laporan</a></li>
+                    <li class="<?= ($halaman=='pelanggan'? 'bg-color-red' : NULL ) ?>"> <a href="index.php?halaman=pelanggan"><i class="fa fa-user"></i> Pelanggan</a></li>
+                    <li > <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                 </ul>
                
             </div>
