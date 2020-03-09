@@ -35,6 +35,13 @@ footer h3.deskripsi{
 }
 
 /* scm custom */
+img.brand-logo {
+    position: absolute;
+    top: 8px;
+}
+.row-header {
+    padding: 10px 0px;
+}
 .wrap-content {
     min-height: 360px !important;
     margin-bottom: 3rem;

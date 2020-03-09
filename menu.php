@@ -1,7 +1,13 @@
 <header>
-	<img src="foto_produk/logo.jpg" height="120" width"100" style="float:left; margin:0 8px 4px 0;">
-	<h1 class="judul"> LOCDOWN STORE</h1>
-	<h3 class="deskripsi"> - Distro Baju Terlengkap Di Prambanan- </h3>
+	<div class="container">
+		<img class="brand-logo" src="foto_produk/logo.jpg" height="120" >
+		<div class="row row-header">
+			<div class="col-md-12">
+				<h1 class="judul"> LOCDOWN STORE</h1>
+				<h3 class="deskripsi"> - Distro Baju Terlengkap Di Prambanan- </h3>
+			</div>
+		</div>
+	</div>
 </header>
 
 <!-- navbar -->
