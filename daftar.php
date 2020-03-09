@@ -6,42 +6,48 @@
 						<h3 class="panel-title">Daftar Pelanggan</h3>
 					</div>
 					<div class="panel-body">
-						<form method="post" class="form-horizontal">
-							<div class="form-group">
-								<label class="control-label col-md-3">Nama</label>
-								<div class="col-md-7">
-									<input type="text" class="form-control" name="nama" required>
+						<form method="post">
+							<hr>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label >Nama</label>
+									<input type="text" class="form-control" name="nama" placeholder="John Dhoe" required="">
+								</div>
+								<div class="form-group col-md-6">
+									<label >Email</label>
+									<input type="email" class="form-control" name="email" placeholder="john@gmail.com" required="">
+								</div>
+								<div class="form-group col-md-6">
+									<label >Password</label>
+									<input type="text" class="form-control" name="password" placeholder="********" required="">
+								</div>
+								<div class="form-group col-md-6">
+									<label >Telp/HP</label>
+									<input type="telp" class="form-control" name="telepon" placeholder="081234567890" required="">
+								</div>
+								<div class="form-group col-md-5">
+									<label >Provinsi</label>
+									<select class="form-control" name="provinsi" id="" required="">
+										<option value="" selected disabled> -- Pilih Provinsi --</option>
+									</select>
+								</div>
+								<div class="form-group col-md-5">
+									<label >Kota/Kabupaten</label>
+									<select class="form-control" name="kota" id="">
+										<option value="" selected disabled> -- Pilih provinsi terlebih dahulu -- </option>
+									</select>
+								</div>
+								<div class="form-group col-md-2">
+									<label >Kode POS</label>
+									<input type="text" class="form-control" name="kode_pos" placeholder="Kode pos" required="">
+								</div>
+								<div class="form-group col-md-12">
+									<label >Alamat</label>
+									<textarea class="form-control" name="alamat" placeholder="Nama gedung, jalan dan lainnya ..." required=""></textarea>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Email</label>
-								<div class="col-md-7">
-									<input type="email" class="form-control" name="email" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Password</label>
-								<div class="col-md-7">
-									<input type="text" class="form-control" name="password" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Alamat</label>
-								<div class="col-md-7">
-									<textarea class="form-control" name="alamat" required></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">Telp/HP</label>
-								<div class="col-md-7">
-									<input type="text" class="form-control" name="telepon" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-7 col-md-offset-3">
-									<button class="btn btn-primary" name="daftar">Daftar</button>
-								</div>
-							</div>
+							<hr>
+							<button class="btn btn-block btn-primary" name="daftar">Daftar</button>
 						</form>
 						<?php
 						// jika ada tombol daftar(ditekan tombol daftar)
