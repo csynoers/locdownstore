@@ -75,7 +75,7 @@ include 'koneksi.php';
 							<h1>Produk Terbaru</h1>
 							<div class="row">
 								<?php
-									$db->query = "SELECT * FROM produk ORDER BY id_produk";
+									$db->query = "SELECT * FROM produk ORDER BY id_produk DESC";
 									foreach ($db->query() as $key => $value) {
 										$value->harga_produk_idr= number_format($value->harga_produk);
 										$value->hrefDetail		= "index.php?page=detail-produk&id={$value->id_produk}";
