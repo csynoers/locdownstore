@@ -29,7 +29,7 @@ if (!isset($_SESSION['admin']))
     <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css?v=0.1" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- DATA TABLES -->
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <!-- JQUERY SCRIPTS -->
