@@ -82,8 +82,9 @@ include 'koneksi.php';
 										echo "
 											<div class='col-md-3'>
 												<div class='thumbnail'>
-													<div class='thumbnail-product' data-src='gambar/produk/{$value->foto_produk}'>
-													</div>
+													<a href='{$value->hrefDetail}'>
+														<div class='thumbnail-product' data-src='gambar/produk/{$value->foto_produk}'></div>
+													</a>
 													<div class='caption'>
 														<h4><a href='{$value->hrefDetail}'>{$value->nama_produk}</a></h4>
 														<h5>Rp. {$value->harga_produk_idr}</h5>
