@@ -20,7 +20,7 @@
 		<tr>
 			<td><?php echo $nomor; ?></td>
 			<td>
-				<img src="../gambar/produk/<?php echo $pecah['foto_produk']; ?>" height="75px">
+				<img src="../gambar/produk/<?php echo $pecah['foto_produk']; ?>" height="50px">
 			</td>
 			<td><?php echo $pecah['nama_produk'];?></td>
 			<td><?php echo $pecah['harga_produk'];?></td>
