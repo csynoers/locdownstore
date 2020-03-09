@@ -50,7 +50,7 @@ if (!isset($_SESSION['admin']))
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">&nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">&nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -66,7 +66,7 @@ font-size: 16px;">&nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Lo
                     <li> <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Pembelian</a></li>
                     <li> <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file"></i> Laporan</a></li>
                     <li> <a href="index.php?halaman=pelanggan"><i class="fa fa-user"></i> Pelanggan</a></li>
-                    <li> <a href="index.php?halaman=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                 </ul>
                
             </div>
