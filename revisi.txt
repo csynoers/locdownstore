@@ -1,0 +1,31 @@
+->website thumbnail product position background
+->website header position container
+->website halaman detail produk tambah stok produk
+->website halaman detail produk jika produk kosong stok "-maaf stok habis-"
+->website halaman detail produk jika produk kosong tombol beli dihilangkan
+->website halaman home kolom produk ORDER BY id_produk DESC
+->website halaman home kolom produk tambah link untuk gambar produk
+->website halaman form daftar pelanggan tampilan dibuat kanan kiri agar menghemat ruang
+->website halaman form daftar pelanggan tambah kolom provinsi,kota dan kode pos
+->website halaman form daftar pelanggan tambah placeholder
+->website halaman form daftar pelanggan tambah form required untuk validasi
+->website halaman form login pelanggan tambah placeholder
+->website halaman form login pelanggan tambah autocomplete OFF
+->website halaman form login pelanggan tambah form required untuk validasi
+
+->admin halaman login tambah koneksi database dinamis
+->admin halaman dashboard/home/index.php tambah koneksi database dinamis
+->admin halaman produk view ganti dengan library datatables
+->admin halaman produk form tambah produk tampilan dibuat kanan kiri agar menghemat ruang
+->admin halaman produk form tambah produk tambah kolom stok
+->admin halaman produk form tambah produk tambah placeholder
+->admin halaman produk form tambah produk tambah form required untuk validasi
+->admin halaman produk form tambah produk proses store insert tambah proses rename foto ketika upload agar tidak overwrite file
+->admin halaman produk form tambah produk form edit produk tampilan dibuat kanan kiri agar menghemat ruang
+->admin halaman produk form tambah produk tambah kolom stok
+->admin halaman produk form tambah produk tambah placeholder
+->admin halaman produk form tambah produk tambah form required untuk validasi
+->admin halaman produk form tambah produk proses store update tambah proses hapus foto ketika admin mengganti foto produk
+->admin halaman produk form tambah produk proses store update tambah proses rename foto ketika upload agar tidak overwrite file
+->admin fix proses logout link error
+->admin fix proses redirect login page

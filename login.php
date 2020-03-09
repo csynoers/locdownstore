@@ -9,14 +9,18 @@
 					<form method="post">
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" class="form-control" name="email">
+							<input type="email" class="form-control" name="email" placeholder="email@gmail.com" required="" autocomplete="off">
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type="password" class="form-control" name="password">
+							<input type="password" class="form-control" name="password" placeholder="********" required="" autocomplete="off">
 						</div>
-						<button class="btn btn-primary" name="login">Login</button> Anda Belum memiliki akun ? <br>
-						<li><a href="index.php?page=daftar">Daftar Di sini !</a></li> 
+						<button class="btn btn-block btn-primary" name="login">Login</button>
+						<hr>
+						<p class="text-center">
+							Anda Belum memiliki akun ? 
+							<a href="index.php?page=daftar">Daftar Di sini !</a></li> 
+						</p>
 				</div>
 			</div>	
 
