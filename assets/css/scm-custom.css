@@ -1,13 +1,13 @@
 header{
     background-color: #E6E6FA;
-    padding:  30px 10px;
-    border-radius: 5px;
+    /* padding:  30px 10px; */
+    /* border-radius: 5px; */
     border: 1px solid #FFFFE0;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 h4{
-    margin-left: 20px;
+    /* margin-left: 20px; */
     margin-top: 10px;
 }
 
@@ -25,7 +25,7 @@ footer{
 }
 
 h4{
-    margin-left: 20px;
+    /* margin-left: 20px; */
     margin-top: 10px;
 }
 
@@ -43,5 +43,10 @@ footer h3.deskripsi{
     padding: 3rem 0rem;
     border-radius: unset;
     margin-bottom: 0px !important;
+}
+.thumbnail-product {
+    height: 200px;
+    background-size: cover;
+    background-position: center; 
 }
 /* scm custom */

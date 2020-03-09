@@ -77,16 +77,18 @@ include 'koneksi.php';
 								<?php
 									$db->query = "SELECT * FROM produk";
 									foreach ($db->query() as $key => $value) {
-										$value->harga_produk_idr = number_format($value->harga_produk);
+										$value->harga_produk_idr= number_format($value->harga_produk);
+										$value->hrefDetail		= "index.php?page=detail-produk&id={$value->id_produk}";
 										echo "
 											<div class='col-md-3'>
 												<div class='thumbnail'>
-													<img src='foto_produk/{$value->foto_produk}' alt=''>
+													<div class='thumbnail-product' data-src='foto_produk/{$value->foto_produk}'>
+													</div>
 													<div class='caption'>
-														<h3>{$value->nama_produk}</h3>
+														<h4><a href='{$value->hrefDetail}'>{$value->nama_produk}</a></h4>
 														<h5>Rp. {$value->harga_produk_idr}</h5>
 														<a href='beli.php?id={$value->id_produk}' class='btn btn-primary'>Beli</a>
-														<a href='index.php?page=detail-produk&id={$value->id_produk}' class='btn btn-default'>Detail</a>
+														<a href='{$value->hrefDetail}' class='btn btn-default'>Detail</a>
 													</div>
 												</div>
 											</div>
@@ -102,5 +104,17 @@ include 'koneksi.php';
 
 		include 'footer.php';
 	?>
+	<script>
+		(function( j ){
+			let thumbnail_product = j('.thumbnail-product');
+			j.each( thumbnail_product, function(){
+				let thumbnail_product_src = j( this ).data( 'src' );
+				
+				/* create image background */
+				j( this ).css( 'background-image' , `url('${thumbnail_product_src}')` )
+				console.log( thumbnail_product_src )
+			} )
+		})( jQuery )
+	</script>
 	</body>
 </html>
