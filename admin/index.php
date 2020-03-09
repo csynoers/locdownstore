@@ -1,8 +1,8 @@
 ﻿<?php
-session_start();
-//koneksi ke database
-$koneksi = new mysqli("localhost","root","","danang");
-
+    session_start();
+    
+    #load koneksi database
+    include_once('../koneksi.php');
 
 if (!isset($_SESSION['admin']))
 {
