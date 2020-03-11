@@ -63,32 +63,44 @@
 						// jika ada tombol daftar(ditekan tombol daftar)
 						if (isset($_POST["nama"]))
 						{
-							// mengambil isian nama,email,password,alamat,telepon
-							$nama = $_POST["nama"];
-							$email = $_POST["email"];
-							$alamat = $_POST["alamat"];
-							$password = $_POST["password"];
-							$telepon = $_POST["telepon"];
+							// mengambil isian nama,email,password,alamat,telepon,provinsi,kota dan kode_pos
+							$nama 		= str_replace("'","\'",strip_tags($_POST["nama"]));
+							$email 		= $_POST["email"];
+							$alamat 	= str_replace("'","\'",strip_tags($_POST["alamat"]));
+							$password 	= $_POST["password"];
+							$telepon 	= $_POST["telepon"];
+							$provinsi 	= $_POST["provinsi"];
+							$kota 		= $_POST["kota"];
+							$kode_pos 	= $_POST["kode_pos"];
 
 							// cek apakah email sudah digunakan
-							$ambil = $koneksi->query("SELECT * FROM pelanggan
+							$db->query = ("SELECT * FROM pelanggan
 								WHERE email_pelanggan='$email'");
-							$yangcocok = $ambil->num_rows;
-							if ($yangcocok==1) 
+								print_r($db);
+								print_r($db->query_exec());
+								die();
+							if ($yangcocok > 0) 
 							{
-								echo "<script>alert('pendaftaran gagal, email sudah digunakan');</script>";
-								echo "<script>location='daftar.php';</script>";
+								echo "<script>alert('pendaftaran gagal, email sudah digunakan')</script>";
 							}
 							else
 							{
 								// query insert ke tabel pelanggan
-								$koneksi->query("INSERT INTO pelanggan
-									(email_pelanggan,password_pelanggan,nama_pelanggan,
-									telepon_pelanggan,alamat_pelanggan)
-									VALUES('$email','$password','$nama','$telepon','$alamat')");
+								$db->query = ("
+									INSERT INTO pelanggan
+										(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan)
+									VALUES
+										('$email','$password','$nama','$telepon')
+								");
+								# proses store insert data pada tabel pelanggan
+								$insert = $db->query_exec();
 
-								echo "<script>alert('pendaftaran sukses, silahkan login');</script>";
-								echo "<script>location='login.php';</script>";
+								# get last insert id
+								$id_pelanggan = $db->lastInsertId();
+
+								print_r($id_pelanggan);
+								// echo "<script>alert('pendaftaran sukses, silahkan login');</script>";
+								// echo "<script>location='login.php';</script>";
 							}
 						}
 						?>

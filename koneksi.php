@@ -50,6 +50,15 @@
             $stmt= $this->db->prepare($this->query);
             return $stmt->execute();
         }
+        
+        /*
+        *	public function query
+        *	return lastInsertId
+        */
+        public function lastInsertId()
+        {
+            return $this->db->lastInsertId();
+        }
 
         protected function check_connection()
         {
