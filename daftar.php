@@ -19,7 +19,7 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label >Password</label>
-									<input type="text" class="form-control" name="password" placeholder="********" required="">
+									<input type="password" class="form-control" name="password" placeholder="********" required="">
 								</div>
 								<div class="form-group col-md-6">
 									<label >Telp/HP</label>
@@ -66,39 +66,46 @@
 							// mengambil isian nama,email,password,alamat,telepon,provinsi,kota dan kode_pos
 							$nama 		= str_replace("'","\'",strip_tags($_POST["nama"]));
 							$email 		= $_POST["email"];
-							$alamat 	= str_replace("'","\'",strip_tags($_POST["alamat"]));
 							$password 	= $_POST["password"];
 							$telepon 	= $_POST["telepon"];
 							$provinsi 	= $_POST["provinsi"];
 							$kota 		= $_POST["kota"];
 							$kode_pos 	= $_POST["kode_pos"];
+							$alamat 	= str_replace("'","\'",strip_tags($_POST["alamat"]));
 
 							// cek apakah email sudah digunakan
-							$db->query = ("SELECT * FROM pelanggan
-								WHERE email_pelanggan='$email'");
-								print_r($db);
-								print_r($db->query_exec());
-								die();
-							if ($yangcocok > 0) 
+							$db->query 	= ("SELECT * FROM pelanggan WHERE email_pelanggan='$email'");
+							$cek_rows	= count($db->query());
+
+							if ( $cek_rows > 0) 
 							{
+								# jika sudah digunakan jalankan skrip ini
 								echo "<script>alert('pendaftaran gagal, email sudah digunakan')</script>";
 							}
 							else
 							{
-								// query insert ke tabel pelanggan
-								$db->query = ("
-									INSERT INTO pelanggan
-										(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan)
-									VALUES
-										('$email','$password','$nama','$telepon')
-								");
+								# jika email belum digunakan jalankan skrip dibawah ini
+								// $db->query = ("
+								// 	INSERT INTO pelanggan
+								// 		(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan)
+								// 	VALUES
+								// 		('$email','$password','$nama','$telepon')
+								// ");
+
 								# proses store insert data pada tabel pelanggan
-								$insert = $db->query_exec();
-
+								// $insert = $db->query_exec();
+								
 								# get last insert id
-								$id_pelanggan = $db->lastInsertId();
-
+								// $id_pelanggan = $db->lastInsertId();
+								
+								# query store insert data pada tabel alamat
+								$db->query = "INSERT INTO alamat
+									()
+								VALUES
+									()";
+								print_r($_POST['alamat']);
 								print_r($id_pelanggan);
+								die();
 								// echo "<script>alert('pendaftaran sukses, silahkan login');</script>";
 								// echo "<script>location='login.php';</script>";
 							}
