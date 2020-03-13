@@ -159,7 +159,8 @@
 		j('form#formCheckout').on('submit',function(){
 			$.get('create_invoice.php',$( this ).serialize(),function(d){
 				if ( d.status == 'true' ) {
-					window.location.assign(d.url);
+					// window.location.assign(d.url);
+					window.location.assign('index.php?page=riwayat-belanja');
 				} else {
 					
 				}
