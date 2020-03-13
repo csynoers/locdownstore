@@ -10,7 +10,7 @@ print_r($_SESSION);
 ?>
 <section class="riwayat wrap-content">
 	<div class="container">
-		<h3>Riwayat Belanja <?php echo $_SESSION["pelanggan"]["nama_pelanggan"] ?></h3>
+		<h3>Riwayat Belanja <?php echo $_SESSION["pelanggan"]->nama_pelanggan ?></h3>
 
 		<table class="table table-bordered">
 			<thead>
@@ -26,7 +26,7 @@ print_r($_SESSION);
 				<?php
 				$nomor=1;
 				// mendapatkan id_pelanggan yang login dari session
-				$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
+				$id_pelanggan = $_SESSION["pelanggan"]->id_pelanggan;
 
 				$db->query = ("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
 				foreach ($db->query() as $key => $value) {
