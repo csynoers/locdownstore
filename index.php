@@ -1,7 +1,34 @@
 <?php
 session_start();
 //koneksi ke database
-include 'koneksi.php';
+	include 'koneksi.php';
+
+	/* start :: konfirmasi email */
+	if ( ! empty($_GET['konfirmasi_email']) ) 
+	{
+		$email = base64_decode($_GET['konfirmasi_email']);
+		/* query cek data pelanggan */
+		$db->query = "SELECT * FROM pelanggan WHERE email_pelanggan='{$email}'";
+
+		/* cek terlebih dahulu apakah pelanggan dengan email ini tersedia jika tersedia lakukan update jika tidak kosongkan aksi */
+		if ( count($db->query()) > 0 ) {
+			/* query update data pelanggan */
+			$db->query = "
+				UPDATE
+					`pelanggan`
+				SET 
+					`block`='tidak',
+					`konfirmasi_email`='ya'
+				WHERE email_pelanggan='{$email}'
+			";
+			/* eksekusi query */
+			$db->query_exec();
+	
+			echo "<script>alert('Selamat akun anda telah aktif, Silahkan login terlebih dahulu untuk melakukan pembelian produk di locdownstore.com');</script>";
+			echo "<script>location='index.php?page=login'</script>";
+		}
+	}
+	/* end :: konfirmasi email */
 ?>
 <!DOCTYPE html>
 <html>
