@@ -6,6 +6,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 	echo "<script>location='login.php';</script>";
 	exit();
 }
+print_r($_SESSION);
 ?>
 <section class="riwayat wrap-content">
 	<div class="container">
