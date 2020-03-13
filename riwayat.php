@@ -67,7 +67,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 							$nomor++;
 						}
 					} else {
-						echo "Belum Ada Pesanan";
+						echo "<tr><td colspan='5'>Belum Ada Pesanan</td></tr>";
 					}
 				?>
 			</tbody>
