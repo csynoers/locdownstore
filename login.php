@@ -36,20 +36,17 @@ if (isset($_POST["login"]))
 	$email = $_POST["email"];
 	$password = $_POST["password"];
 	//lakukan kuery ngecek akun ditabel pelanggan di database
-	$ambil = $koneksi->query("SELECT * FROM pelanggan 
-		WHERE email_pelanggan='$email' AND password_pelanggan='$password'");
-
-	//ngitung akun yang terambil
-	$akunyangcocok = $ambil->num_rows;
+	$db->query = ("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan='$password' AND block='tidak' AND konfirmasi_email='ya' ");
+	
+	/* eksekusi query */
+	$rows = $db->query();
 
 	//jika 1 akun yang cocok, maka diloginkan
-	if ($akunyangcocok==1) 
+	if ( count($rows) > 0 ) 
 	{
 		//anda sukses login
-		//mendapatkan akun dalam bentuk array
-		$akun = $ambil->fetch_assoc();
 		//simpan di session pelanggan
-		$_SESSION["pelanggan"] = $akun;
+		$_SESSION["pelanggan"] = $rows[0];
 		echo "<script>alert('anda sukses login');</script>";
 
 		// jika sudah belanja
@@ -66,7 +63,7 @@ if (isset($_POST["login"]))
 	{
 		//anda gagal login
 		echo "<script>alert('anda gagal login, periksa akun anda');</script>";
-		echo "<script>location='login.php';</script>";
+		echo "<script>location='index.php?page=login';</script>";
 	}
 }
 
