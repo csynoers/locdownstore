@@ -6,7 +6,6 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 	echo "<script>location='login.php';</script>";
 	exit();
 }
-print_r($_SESSION);
 ?>
 <section class="riwayat wrap-content">
 	<div class="container">
@@ -24,45 +23,53 @@ print_r($_SESSION);
 			</thead>
 			<tbody>
 				<?php
-				$nomor=1;
-				// mendapatkan id_pelanggan yang login dari session
-				$id_pelanggan = $_SESSION["pelanggan"]->id_pelanggan;
+					$nomor=1;
+					// mendapatkan id_pelanggan yang login dari session
+					$id_pelanggan = $_SESSION["pelanggan"]->id_pelanggan;
 
-				$db->query = ("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
-				foreach ($db->query() as $key => $value) {
-					// echo json_encode($value);
-					$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
+					$db->query = ("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
+					$rows = $db->query();
+					if ( count($rows) > 0 ) {
+						# code...
+						foreach ( $rows as $key => $value) {
+							// echo json_encode($value);
+							$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pembayaran));
 
-					if ( $value->status_pesanan ) {
-						$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pesanan));
-					}
-
-					// if ( $value->metode_pembayaran ) {
-					// 	$value->status_mod .= "<br><small><small>{$value->metode_pembayaran}</small></small> " ;
-					// }
-					?>
-				<tr>
-					<td><?php echo $nomor; ?></td>
-					<td><?= $value->tanggal_pembelian ?></td>
-					<td>
-						<?= $value->status_mod ?>
-							<br>
-							<?php if (!empty($pecah['resi_pengiriman'])): ?>
-								Resi : <?php echo $pecah['resi_pengiriman']; ?>
-							<?php endif ?>
-						</td>
-					<td>Rp. <?php echo number_format($value->total_pembelian) ?></td>
-					<td>
-						<a href="index.php?page=nota&id=<?php echo $value->id_pembelian ?>" class="btn btn-info">Nota</a>
-						<?php
-							if ( ($value->status_pembayaran=='belum_dibayar') && empty($value->metode_pembayaran) ) {
-								echo "<a href='{$value->invoice_url}' class='btn btn-success'>Bayar Sekarang</a>";
+							if ( $value->status_pesanan ) {
+								$value->status_mod = strtoupper(str_replace('_',' ',$value->status_pesanan));
 							}
-						?>
-					</td>
-				</tr>
-				<?php $nomor++; ?>
-			<?php } ?>
+
+							// if ( $value->metode_pembayaran ) {
+							// 	$value->status_mod .= "<br><small><small>{$value->metode_pembayaran}</small></small> " ;
+							// }
+							?>
+								<tr>
+									<td><?php echo $nomor; ?></td>
+									<td><?= $value->tanggal_pembelian ?></td>
+									<td>
+										<?= $value->status_mod ?>
+											<br>
+											<?php if (!empty($pecah['resi_pengiriman'])): ?>
+												Resi : <?php echo $pecah['resi_pengiriman']; ?>
+											<?php endif ?>
+										</td>
+									<td>Rp. <?php echo number_format($value->total_pembelian) ?></td>
+									<td>
+										<a href="index.php?page=nota&id=<?php echo $value->id_pembelian ?>" class="btn btn-info">Nota</a>
+										<?php
+											if ( ($value->status_pembayaran=='belum_dibayar') && empty($value->metode_pembayaran) ) {
+												echo "<a href='{$value->invoice_url}' class='btn btn-success'>Bayar Sekarang</a>";
+											}
+										?>
+									</td>
+								</tr>
+							<?php
+							$nomor++;
+						}
+					} else {
+						echo "Belum Ada Pesanan";
+					}
+				?>
 			</tbody>
 		</table>
 	</div>
