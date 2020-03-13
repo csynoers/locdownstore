@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2020 at 03:42 AM
+-- Generation Time: Mar 13, 2020 at 09:23 AM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,13 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
 --
 
 CREATE TABLE `alamat` (
-  `id_alamat` int(11) NOT NULL
+  `id_alamat` int(11) NOT NULL,
+  `id_pelanggan` int(11) NOT NULL,
+  `provinsi` int(11) NOT NULL,
+  `kota` int(11) NOT NULL,
+  `kode_pos` int(11) NOT NULL,
+  `alamat_lengkap` tinytext NOT NULL,
+  `status_alamat` enum('aktif','tidak_aktif') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,17 +69,19 @@ CREATE TABLE `pelanggan` (
   `email_pelanggan` varchar(100) NOT NULL,
   `password_pelanggan` varchar(50) NOT NULL,
   `nama_pelanggan` varchar(100) NOT NULL,
-  `telepon_pelanggan` varchar(25) NOT NULL
+  `telepon_pelanggan` varchar(25) NOT NULL,
+  `block` enum('ya','tidak') NOT NULL DEFAULT 'ya',
+  `konfirmasi_email` enum('ya','tidak') NOT NULL DEFAULT 'tidak'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id_pelanggan`, `email_pelanggan`, `password_pelanggan`, `nama_pelanggan`, `telepon_pelanggan`) VALUES
-(1, 'danangwahyu@gmail.com', 'danang', 'Danang Wahyu', '085868832676'),
-(2, 'adityarafif@gmail.com', 'aditya', 'Aditya Rafif', '085868832677'),
-(3, 'sinur@gmail.com', 'sinur', 'sinur', '08123456789');
+INSERT INTO `pelanggan` (`id_pelanggan`, `email_pelanggan`, `password_pelanggan`, `nama_pelanggan`, `telepon_pelanggan`, `block`, `konfirmasi_email`) VALUES
+(1, 'danangwahyu@gmail.com', 'danang', 'Danang Wahyu', '085868832676', 'tidak', 'tidak'),
+(2, 'adityarafif@gmail.com', 'aditya', 'Aditya Rafif', '085868832677', 'tidak', 'tidak'),
+(3, 'sinur@gmail.com', 'sinur', 'sinur', '08123456789', 'tidak', 'tidak');
 
 -- --------------------------------------------------------
 

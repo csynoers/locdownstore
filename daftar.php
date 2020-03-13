@@ -85,29 +85,63 @@
 							else
 							{
 								# jika email belum digunakan jalankan skrip dibawah ini
-								// $db->query = ("
-								// 	INSERT INTO pelanggan
-								// 		(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan)
-								// 	VALUES
-								// 		('$email','$password','$nama','$telepon')
-								// ");
+								$db->query = ("
+									INSERT INTO pelanggan
+										(email_pelanggan,password_pelanggan,nama_pelanggan,telepon_pelanggan,block,konfirmasi_email)
+									VALUES
+										('$email','$password','$nama','$telepon','ya','tidak')
+								");
 
 								# proses store insert data pada tabel pelanggan
-								// $insert = $db->query_exec();
+								$insert = $db->query_exec();
 								
 								# get last insert id
-								// $id_pelanggan = $db->lastInsertId();
+								$id_pelanggan = $db->lastInsertId();
 								
 								# query store insert data pada tabel alamat
-								$db->query = "INSERT INTO alamat
-									()
-								VALUES
-									()";
-								print_r($_POST['alamat']);
-								print_r($id_pelanggan);
-								die();
-								// echo "<script>alert('pendaftaran sukses, silahkan login');</script>";
-								// echo "<script>location='login.php';</script>";
+								$db->query = "
+									INSERT INTO alamat
+										(id_pelanggan,provinsi,kota,kode_pos,alamat_lengkap,status_alamat)
+									VALUES
+										('{$id_pelanggan}','{$provinsi}','{$kota}','{$kode_pos}','$alamat','aktif')
+								";
+								$insert = $db->query_exec();
+
+								/* ==================== START :: SEND EMAIL ==================== */
+								$data = [];
+								$data['mail']['email'] = $email;
+								$data['mail']['link_konfirmasi'] = 'https://locdownstore.com/index.php?konfirmasi_email=' . base64_encode($email);
+								$data['mail']['subjek'] = "Konfirmasi Email";
+								$data['mail']['pesan'] = "
+									<html>
+										<head>
+											<title>TOKO LOCDOWN STORE</title>
+										</head>
+										<body>
+											<div style='
+												margin: 10% 20%;
+												background: #ddd;
+												padding: 20px;
+											'>
+												<b>Selamat anda telah terdaftar sebagai member silahkan :</b><br>
+												<a href='{$data['mail']['link_konfirmasi']}'>Login</a>
+											</div>
+										</body>
+									</html>	
+								";
+						
+								// Always set content-type when sending HTML email
+								$data['mail']['dari'] = "MIME-Version: 1.0" . "\r\n";
+								$data['mail']['dari'] .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+						
+								// More headers
+								$data['mail']['dari'] .= 'From: <support@locdownstore.com>' . "\r\n";
+								mail($data['mail']['email'],$data['mail']['subjek'],$data['mail']['pesan'],$data['mail']['dari']);
+								/* ==================== END :: SEND EMAIL ==================== */
+
+
+								echo "<script>alert('pendaftaran sukses, silahkan konfirmasi email terlebih dahulu untuk mengaktifkan akun anda');</script>";
+								echo "<script>location='index.php'</script>";
 							}
 						}
 						?>
