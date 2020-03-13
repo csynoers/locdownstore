@@ -64,12 +64,12 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan'] ?>" class="form-control">
+					<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]->nama_pelanggan ?>" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['telepon_pelanggan'] ?>" class="form-control">
+					<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]->telepon_pelanggan ?>" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -81,7 +81,7 @@
 		</div>
 		<input type="hidden" name="id" value="<?= $_SESSION['order_id'] ?>">
 		<input type="hidden" name="amount" value="<?= $totalbelanja ?>">
-		<input type="hidden" name="email" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>">
+		<input type="hidden" name="email" value="<?= $_SESSION['pelanggan']->email_pelanggan ?>">
 		<input type="hidden" name="keterangan" value="pembayaran produk : <?= implode(',',$items) ?>">
 		<button type="submit" class="btn btn-primary" name="checkout">Checkout</button>
 	</form>
@@ -92,7 +92,7 @@
 	// echo '</pre>';
 	if (isset($_POST["checkout"]))
 	{
-		$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
+		$id_pelanggan = $_SESSION["pelanggan"]->id_pelanggan;
 		$id_ongkir = $_POST["id_ongkir"];
 		$tanggal_pembelian = date("Y-m-d");
 		$alamat_pengiriman = $_POST['alamat_pengiriman'];
