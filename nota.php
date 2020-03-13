@@ -18,12 +18,12 @@ $detail = $ambil->fetch_assoc();
 $idpelangganyangbeli = $detail["id_pelanggan"];
 
 // mendapatkan id_pelanggan yang login
-$idpelangganyanglogin = $_SESSION["pelanggan"]["id_pelanggan"];
+$idpelangganyanglogin = $_SESSION["pelanggan"]->id_pelanggan;
 
 if ($idpelangganyangbeli!==$idpelangganyanglogin) 
 {
 	echo "<script>alert('jangan nakal');</script>";
-	echo "<script>location='riwayat.php';</script>";
+	echo "<script>location='index.php';</script>";
 	exit();
 }
 ?>
