@@ -117,14 +117,20 @@
 										<head>
 											<title>TOKO LOCDOWN STORE</title>
 										</head>
-										<body>
-											<div style='
-												margin: 10% 20%;
-												background: #ddd;
-												padding: 20px;
-											'>
-												<b>Selamat anda telah terdaftar sebagai member silahkan :</b><br>
-												<a href='{$data['mail']['link_konfirmasi']}'>Login</a>
+										<body style='background: #eee;'>
+											<div style='padding: 50px;'>
+												<div style='background:#007bff;padding: 1px 0px;text-align: center;color: white;border-radius: 15px 15px 0px 0px;'>
+													<h1>TOKO LOCDOWN STORE</h1>
+												</div>
+												<div style='background: #fff;padding: 30px 30px;'>
+													<h2 style='margin-top: 0px'>Hi {$nama},</h2>
+													<p>Selamat pendaftaran anda telah berhasil</p>
+													<p>Username kamu adalah : <a href='mailto:{$email}' target='_blank'>{$email}</a></p>
+													<a href='{$data['mail']['link_konfirmasi']}' target='_blank' style='background-color: #39a300;color: #fff;padding: 10px 12px;text-decoration: none;'>Klik disini untuk melakukan konfirmasi email</a>
+												</div>
+												<div style='background:#007bff;padding: 1px 0px;text-align: center;color: white;border-radius: 0px 0px 15px 15px;'>
+													<p><a href='https://locdownstore.com' target='_blank' style='color: wheat;font-weight: bold;'>TOKO LOCDOWN STORE © ".date('Y')."</a><br> - Distro Baju Terlengkap Di Prambanan -</p>
+												</div>
 											</div>
 										</body>
 									</html>	
@@ -140,7 +146,7 @@
 								/* ==================== END :: SEND EMAIL ==================== */
 
 
-								echo "<script>alert('pendaftaran sukses, silahkan konfirmasi email terlebih dahulu untuk mengaktifkan akun anda');</script>";
+								echo "<script>alert('pendaftaran sukses, silahkan konfirmasi email terlebih dahulu untuk mengaktifkan akun anda, jika tidak ada di menu kotak masuk silahkan cek di menu spam ');</script>";
 								echo "<script>location='index.php'</script>";
 							}
 						}
